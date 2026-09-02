@@ -4,6 +4,7 @@ from alembic import context
 from sqlalchemy import create_engine, pool
 
 from lattice_db.settings import get_settings
+from lattice_db.schema import metadata
 
 config = context.config
 
@@ -13,7 +14,7 @@ if config.config_file_name is not None:
 settings = get_settings()
 
 # SQLAlchemy models will be connected here once we define the schema
-target_metadata = None
+target_metadata = metadata
 
 
 def run_migrations_offline() -> None:
